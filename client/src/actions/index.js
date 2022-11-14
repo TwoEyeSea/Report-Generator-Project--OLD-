@@ -43,7 +43,7 @@ export const createReport = (formValues) => async (dispatch, getState) => {
 };
 
 export const fetchReports = () => async (dispatch) => {
-  const { data, status } = await report.get("/reports");
+  const { data, status } = await report.get("/");
   // *NB* "Await" is a keyword in javascript that prevents the execution of the function until we get a response back from the datareport.
   // We can't use the await keyword outside of an async function.
 

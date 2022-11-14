@@ -15,40 +15,51 @@ class ReportList extends React.Component {
 
   renderList() {
     return this.props.reports.map((report) => {
-      return <div key={report.id}>{report.title}</div>;
+      return <div className="item" key={report._id}>
+        <i className="large middle aligned icon camera" />
+
+        <div className="content">
+          <Link to={`/reports/${report._id}`}> {/*link will eventually lead to ReportShow component*/}
+            {report.title}
+            <div className="description">{report.body}</div>
+          </Link>
+        </div>
+      </div>;
     });
-    // return this.props.reports.map((report) => {
-    //   return (
-    //     <React.Fragment key={report.id}>
-    //       {/* React Fragments are used for returning JSX elements without adding nodes to the DOM
-    //       This is important because the Semantic Ui LLibrary has strict div and className formatting in order for styles to apply successfully. */}
-    //       {report.Skills.map((skill, i) => {
-    //         return (
-    //           <React.Fragment key={i}>
-    //             {/* <h4>{skill.Area}</h4> */}
-    //             {skill.SkillSet.map((skillset, e) => {
-    //               return (
-    //                 <div className="item">
-    //                   <i className=" large middle aligned icon file" />
-    //                   <React.Fragment key={e}>
-    //                     <div className="content">
-    //                       <Link to={`/reports/${report.id}`}>
-    //                         <div className="header">
-    //                           AMRfeqwfeq :<div className="description">{skillset.Name}</div>
-    //                         </div>
-    //                       </Link>
-    //                     </div>
-    //                   </React.Fragment>
-    //                 </div>
-    //               );
-    //             })}
-    //           </React.Fragment>
-    //         );
-    //       })}
-    //     </React.Fragment>
-    //   );
-    // });
+
   }
+  // return this.props.reports.map((report) => {
+  //   return (
+  //     <React.Fragment key={report.id}>
+  //       {/* React Fragments are used for returning JSX elements without adding nodes to the DOM
+  //       This is important because the Semantic Ui LLibrary has strict div and className formatting in order for styles to apply successfully. */}
+  //       {report.Skills.map((skill, i) => {
+  //         return (
+  //           <React.Fragment key={i}>
+  //             {/* <h4>{skill.Area}</h4> */}
+  //             {skill.SkillSet.map((skillset, e) => {
+  //               return (
+  //                 <div className="item">
+  //                   <i className=" large middle aligned icon file" />
+  //                   <React.Fragment key={e}>
+  //                     <div className="content">
+  //                       <Link to={`/reports/${report.id}`}>
+  //                         <div className="header">
+  //                           AMRfeqwfeq :<div className="description">{skillset.Name}</div>
+  //                         </div>
+  //                       </Link>
+  //                     </div>
+  //                   </React.Fragment>
+  //                 </div>
+  //               );
+  //             })}
+  //           </React.Fragment>
+  //         );
+  //       })}
+  //     </React.Fragment>
+  //   );
+  // });
+  // }
   //  {
   //   return this.props.reports.map((report) => {
   //     return (

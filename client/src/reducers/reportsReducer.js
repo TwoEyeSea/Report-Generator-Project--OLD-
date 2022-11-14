@@ -4,7 +4,7 @@ import _ from "lodash";
 export default (state = {}, action) => {
   switch (action.type) {
     case FETCH_REPORTS:
-      return { ...state, ..._.mapKeys(action.payload, "id") };
+      return { ...state, ..._.mapKeys(action.payload, "_id") };// "_id" is mongoDB id convention
     // we're using the first spread function to add the current state to a new object and the second spread function to add the new _.mapKeys object.
     case FETCH_REPORT:
       return { ...state, [action.payload.id]: action.payload };
