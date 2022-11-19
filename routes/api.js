@@ -30,7 +30,7 @@ router.get('/name', (req, res) => {
 
 // POSTING Data to the DB
 router.post('/save', (req, res) => {
-    console.log('Body:', req.body);
+    console.log('Body:', req.body);// NOTE request or req.body is convention and needs to be specified as "req.body", we don't change this according to our schema.
     const data = req.body;
 
     const newBlogPost = new BlogPost(data); //Be careful not to pass the data constant within curly braces e.g. ({data}) -> this caused a bug with the post request

@@ -30,9 +30,9 @@ export const signOut = () => {
 
 export const createReport = (formValues) => async (dispatch, getState) => {
   const { userId } = getState().auth;
-  const response = await report.post("/reports", { ...formValues, userId });
+  const response = await report.post("/save", { ...formValues, userId });
   // The .post() request is a RESTful convention, we're making a post request to '/reports' with our formValues data.
-  // In thiscase, reposnse, data will contain information on the title and description of a stream.
+  // In thiscase, reposnse, data will contain information on the title and description of a report.
 
   dispatch({ type: CREATE_REPORT, payload: response.data });
   // We give the payload a value of response.data because we only care about the information from the request

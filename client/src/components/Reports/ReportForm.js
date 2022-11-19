@@ -36,7 +36,7 @@ const ReportForm = (props) => {
 
   return (
     
-    <Form
+    <Form // Important note, the name for the form fields need to be identical to the terms in the schema for data to be posted properly. The field names need to be === to the names defined in validation as well.
     initialValues={props.initialValues}
     onSubmit={onSubmit}
     validate={(formValues) => {

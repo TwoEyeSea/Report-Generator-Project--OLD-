@@ -21,7 +21,7 @@ class ReportList extends React.Component {
         <div className="content">
           <Link to={`/reports/${report._id}`}> {/*link will eventually lead to ReportShow component*/}
             {report.title}
-            <div className="description">{report.body}</div>
+            <div className="description">{report.description}</div>
           </Link>
         </div>
       </div>;
