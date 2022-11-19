@@ -42,7 +42,7 @@ router.post('/save', (req, res) => {
             return;
         }
         res.json({
-            msg: 'Your daata has been saved!!!'
+            msg: 'Your data has been saved!!!'
         })
     })
 

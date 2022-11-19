@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 class ReportList extends React.Component {
   componentDidMount() {
     this.props.fetchReports();
+    console.log("retrieved list")
     // retrieves all the required data for the reports into our state on mounting the component
   }
 
@@ -15,18 +16,20 @@ class ReportList extends React.Component {
 
   renderList() {
     return this.props.reports.map((report) => {
-      return <div className="item" key={report._id}>
-        <i className="large middle aligned icon camera" />
+      // This if statement is currently being used to exclude the res.json message from being displayed within the list of reports. the res.json message is requrired to complete 
+      if (!report.msg) {
+        return <div key={report._id} className="item" >
+          <i className="large middle aligned icon camera" />
+          <div className="content">
+            <Link to={`/reports/${report._id}`}> {/*link will eventually lead to ReportShow component*/}
+              {report.title}
+              <div className="description">{report.description}</div>
+            </Link>
+          </div>
+        </div>;
+      }
 
-        <div className="content">
-          <Link to={`/reports/${report._id}`}> {/*link will eventually lead to ReportShow component*/}
-            {report.title}
-            <div className="description">{report.description}</div>
-          </Link>
-        </div>
-      </div>;
     });
-
   }
   // return this.props.reports.map((report) => {
   //   return (

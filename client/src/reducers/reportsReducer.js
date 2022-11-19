@@ -7,11 +7,11 @@ export default (state = {}, action) => {
       return { ...state, ..._.mapKeys(action.payload, "_id") };// "_id" is mongoDB id convention
     // we're using the first spread function to add the current state to a new object and the second spread function to add the new _.mapKeys object.
     case FETCH_REPORT:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state, [action.payload._id]: action.payload };
     case CREATE_REPORT:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state, [action.payload._id]: action.payload };
     case EDIT_REPORT:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state, [action.payload._id]: action.payload };
     case DELETE_REPORT:
       return _.omit(state, action.payload);
     default:

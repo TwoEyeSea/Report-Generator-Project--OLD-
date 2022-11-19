@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 // Schema
 const Schema = mongoose.Schema; // 
 const BlogPostSchema = new Schema({
+    userId: Number,
     title: String, //String is shorhand for {type: string}
     description: String,
     date: {
@@ -19,4 +20,18 @@ const BlogPost = mongoose.model('BlogPost', BlogPostSchema)
 
 module.exports = BlogPost
 
-
+// =======================Potential Schema Format with Trial Pits
+// const BlogPostSchema = new Schema({
+//     userId: Number,
+//     title: String, //String is shorhand for {type: string}
+//     description: String,
+//     trialPits: [
+//         { trialPit1: String },
+//         { trialPit2: String },
+//         { trialPit3: String }
+//     ],
+//     date: {
+//         type: String,
+//         default: Date.now()
+//     }
+// });
