@@ -1,16 +1,17 @@
 import React from "react";
-import { BrowserRouter, Link, Route } from "react-router-dom";
+import { Router, Link, Route } from "react-router-dom";
 import ReportCreate from "./Reports/ReportCreate";
 import ReportList from "./Reports/ReportList";
 import ReportEdit from "./Reports/ReportEdit";
 import ReportDelete from "./Reports/ReportDelete";
 import ReportDownload from "./Reports/ReportDownload";
 import Header from "./Header";
+import history from "../history";
 
 const App = () => {
   return (
     <div className="ui container">
-      <BrowserRouter>
+      <Router history={history}>
         <div>
           {/* To ensure that the Header component is always visible we embed it wihin the BrowserRounter component without a specified path. This is ensure that is is present on each Route*/}
           <Header />
@@ -22,7 +23,7 @@ const App = () => {
           <Route path="/reports/download:" exact component={ReportDownload} />
           {/* I might add another path for ReportShow in the future */}
         </div>
-      </BrowserRouter>
+      </Router>
     </div>
   );
 };
