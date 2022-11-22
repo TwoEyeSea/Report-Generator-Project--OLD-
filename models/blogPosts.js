@@ -1,8 +1,11 @@
 const mongoose = require('mongoose')
-
-
-// Schema
 const Schema = mongoose.Schema; // 
+
+// Schema for Trial Pits
+const TrialPitSchema = new Schema(
+    { firstName: String, lastName: String }
+)
+// Schema for Report
 const BlogPostSchema = new Schema({
     userId: Number,
     title: String, //String is shorhand for {type: string}
@@ -10,7 +13,8 @@ const BlogPostSchema = new Schema({
     date: {
         type: String,
         default: Date.now()
-    }
+    },
+    customers: [TrialPitSchema]
 });
 
 // Model
