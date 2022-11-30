@@ -73,28 +73,33 @@ const ReportForm = (props) => {
             <div>
               <button
               type="button"
-              onClick={() => push('customers', undefined)}
+              onClick={() => push('trialPits', undefined)}
               >
-                add customer
+                Add Trial Pit
               </button>
-              <button type="button" onClick={() => pop('customers')}>
-                remove customer
+              <button type="button" onClick={() => pop('trialPits')}>
+                Remove Trial Pit
               </button>
             </div>
-            <FieldArray name="customers">
+            <FieldArray name="trialPits">
              {({fields}) =>
              fields.map((name, index)=> (
-              <div key={name}>
-                <label>Cust. #{index + 1}</label>
+              <div key={`tp ${index + 1}`}>
+                <label>Trial Pit#{index + 1}</label> {/*Incrementing the customer#*/}
                 <Field
-                name={`${name}.firstName`}
+                name={`${name}.groundWaterLevel`}
                 component="input"
-                placeholder="First Name"
+                placeholder="Recharged ground water level (in inches or undefined)"
                 />
                 <Field
-                name={`${name}.lastName`}
+                name={`${name}.finalDepth`}
                 component="input"
-                placeholder="Last Name"
+                placeholder="Final depth of trial pit"
+                />
+                <Field
+                name={`${name}.bearingStratum`}
+                component="input"
+                placeholder="State competent stratum if encountered"
                 />
                 <span
                   onClick={() => fields.remove(index)}
