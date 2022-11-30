@@ -3,18 +3,18 @@ const Schema = mongoose.Schema; //
 
 // Schema for Trial Pits
 const TrialPitSchema = new Schema(
-    { firstName: String, lastName: String }
+    { groundWaterLevel: Number, finalDepth: Number, bearingStratum: String }
 )
 // Schema for Report
 const BlogPostSchema = new Schema({
-    userId: Number,
+    userId: String, // The userId is too large to be stored with a type of "Number" MongoDB Number integer overflow occurs after 17 integers and replaces subsequent integers with "0"
     title: String, //String is shorhand for {type: string}
     description: String,
     date: {
         type: String,
         default: Date.now()
     },
-    customers: [TrialPitSchema]
+    trialPits: [TrialPitSchema]
 });
 
 // Model
