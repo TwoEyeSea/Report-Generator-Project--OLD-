@@ -58,7 +58,7 @@ export const fetchReports = () => async (dispatch) => {
 };
 
 export const fetchReport = (reportId) => async (dispatch) => {
-  const response = await report.get(`/reportEdit/${reportId}`); // The URI has to match the URI for the associated route within the express routes/api
+  const response = await report.get(`/report/${reportId}`); // The URI has to match the URI for the associated route within the express routes/api
 
   dispatch({ type: FETCH_REPORT, payload: response.data });
 };
@@ -66,7 +66,7 @@ export const fetchReport = (reportId) => async (dispatch) => {
 export const editReport = (reportId, formValues) => async (dispatch, getState) => {
   const { userId } = getState().auth;
 
-  const response = await report.patch(`/reports/${reportId}`, formValues);
+  const response = await report.post(`/reportEdit/${reportId}`, formValues);
   // We're using a "patch" request here isntead of a "put" request because patch only updates SOME of the properties of a target record. The modified properties are limited to the terms specified within the request.
   // The patch request does no modify unspecified properties.
 
