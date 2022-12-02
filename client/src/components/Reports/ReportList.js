@@ -14,7 +14,6 @@ class ReportList extends React.Component {
   // It is important to test that the CreateReport() commponent is posting the db.json elements properly. You may have to delete previous elements if they corrupt the db.json file.
 
   renderAdmin = (report) => {
-    console.log("currentUserId is:", report.userId)
     if (!report.userId) {
       return;
     } else if (report.userId === this.props.currentUserId) {

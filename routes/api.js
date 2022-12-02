@@ -5,6 +5,7 @@ const router = express.Router();
 const BlogPost = require('../models/blogPosts')
 
 // ROUTES
+// Request for all records in the DB
 router.get('/', (req, res) => {
 
     BlogPost.find({}) // MongoDB syntax to query the collection for all documents
@@ -19,14 +20,16 @@ router.get('/', (req, res) => {
         })
 });
 
-// To reach the route for this data, you need to got ot "http://localhost:8080/api/name"
-router.get('/name', (req, res) => {
-    const data = {
-        username: "Alex",
-        age: 26
-    }
-    res.json(data)
-});
+// Request for a specific record in the DB
+router.get('/reportEdit/:id', async (req, res) => {
+    const { id } = req.params;
+    const reportEdit = await BlogPost.findById(id);
+
+    res.json({
+        success: true,
+        reportEdit,
+    })
+})
 
 // POSTING Data to the DB
 router.post('/save', (req, res) => {

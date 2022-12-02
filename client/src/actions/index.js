@@ -58,7 +58,7 @@ export const fetchReports = () => async (dispatch) => {
 };
 
 export const fetchReport = (reportId) => async (dispatch) => {
-  const response = await report.get(`/reports/${reportId}`);
+  const response = await report.get(`/reportEdit/${reportId}`); // The URI has to match the URI for the associated route within the express routes/api
 
   dispatch({ type: FETCH_REPORT, payload: response.data });
 };
