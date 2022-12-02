@@ -6,7 +6,7 @@ const TrialPitSchema = new Schema(
     { groundWaterLevel: Number, finalDepth: Number, bearingStratum: String }
 )
 // Schema for Report
-const BlogPostSchema = new Schema({
+const ReportSchema = new Schema({
     userId: String, // The userId is too large to be stored with a type of "Number" MongoDB Number integer overflow occurs after 17 integers and replaces subsequent integers with "0"
     title: String, //String is shorhand for {type: string}
     description: String,
@@ -18,11 +18,11 @@ const BlogPostSchema = new Schema({
 });
 
 // Model
-const BlogPost = mongoose.model('BlogPost', BlogPostSchema)
+const Report = mongoose.model('Report', ReportSchema)
 // The mongoose.model takes a model name, "BlogPost" and passes it a Schema "BlogPostSchema"
 
 
-module.exports = BlogPost
+module.exports = Report
 
 // =======================Potential Schema Format with Trial Pits
 // const BlogPostSchema = new Schema({
