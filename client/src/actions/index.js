@@ -7,8 +7,6 @@ import {
   CREATE_REPORT,
   EDIT_REPORT,
   FETCH_REPORT,
-  ADD_UNIT,
-  DELETE_UNIT,
 } from "./types";
 import history from "../history";
 
@@ -75,14 +73,9 @@ export const editReport = (reportId, formValues) => async (dispatch, getState) =
 };
 
 export const deleteReport = (reportId) => async (dispatch) => {
-  await report.delete(`/reports/${reportId}`);
+  await report.delete(`/reportDelete/${reportId}`);
   dispatch({ type: DELETE_REPORT, payload: reportId });
   history.push("/");
 };
 
-//===========================
-// ReportForm action Creators
-export const addUnit = (i) => {
-  console.log("fire");
-  return { type: ADD_UNIT, payload: `unit${i}` };
-};
+

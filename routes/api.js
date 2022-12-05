@@ -66,4 +66,17 @@ router.post('/reportEdit/:id', async (req, res) => {
 }
 )
 
+router.delete('/reportDelete/:id', (req, res) => {
+    const { id } = req.params;
+    Report.findByIdAndDelete(id, (error, data) => {
+        if (error) {
+            consol.log('error in deleting!');
+            throw error;
+        } else {
+            console.log(`report of id: ${id} has been deleted!`, data);
+            res.status(204).json(data);
+        }
+    })
+})
+
 module.exports = router;
